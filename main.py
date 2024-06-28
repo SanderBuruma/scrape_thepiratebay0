@@ -20,9 +20,9 @@ file_lines = file_contents.split('\n') if file_contents else []
 
 
 driver: WebDriver = get_chrome_driver(headless=True)
+driver.get('https://thepiratebay0.org/')
 
 # load cookies if possible
-driver.get('https://thepiratebay0.org/')
 if os.path.exists('cookies.json'):
     wait_for_element(driver, By.XPATH, '/html')
     with open('cookies.json', 'r') as f:
@@ -32,7 +32,7 @@ if os.path.exists('cookies.json'):
 
 
 hash_ = ''
-for i in range(100, 1, -1):
+for i in range(35, 1, -1):
     url = 'https://thepiratebay0.org/browse/401/{0}/3'.format(i)
     driver.get(url)
 
